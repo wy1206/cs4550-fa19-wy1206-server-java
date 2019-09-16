@@ -1,0 +1,6 @@
+echo "Describe the app" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/wy1206/cs4550-fall-2019-server-java-wy1206.git
+git push -u origin master
