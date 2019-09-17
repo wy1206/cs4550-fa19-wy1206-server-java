@@ -28,10 +28,11 @@
 <div class="container float-left">
 
     <nav class="navbar navbar-expand navbar-dark bg-primary" >
-        <label>
+        <label class="col-sm-1">
             <i class="fas fa-align-justify wbdv-field wbdv-hamburger" style="color: white;">
             </i>
         </label>
+
         <label class="navbar-brand mr-2 wbdv-label wbdv-course-manager">
             Course Manager
         </label>
@@ -43,8 +44,9 @@
                 placeholder="New course title"/>
 
         <div class="col">
-            <button class="rounded-circle wbdv-button wbdv-add-course">
-                <i class="fas fa-plus" style="color: lightblue;"></i>
+            <button class="btn btn-block bg-light col-sm-2 border-dark fas fa-plus-circle
+             wbdv-button wbdv-add-course" style="color: red;">
+               
             </button>
         </div>
     </nav>
@@ -64,58 +66,80 @@
                 Last modified  by
             </th>
             <th>
-                <i class="fas fa-cog"></i>
+                <i class="fas fa-th-large wbdv-button wbdv-grid-layout col-sm-2"></i>
+                <i class="fas fa-sort wbdv-button wbdv-list-layout col-sm-2"></i>
             </th>
         </tr>
         </thead>
 
         <tbody>
-        <tr class="table">
-            <td>
-                CS4550
+        <tr class="table wbdv-row wbdv-course">
+            <td class="wbdv-row wbdv-title">
+                <i class="fas fa-file"></i>
+                <a href="/webapp/course editor/course-editor.template.client.html">CS4550</a>
             </td>
-            <td>
+            <td class="wbdv-row wbdv-owner">
                 Prof.  Jose  Annunziato
             </td>
-            <td>
-                Prof.  Jose  Annunziato
+            <td class="wbdv-row wbdv-modified-date">
+                -
             </td>
-            <td>
-
+            <td class="wbdv-row wbdv-delete wbdv-button" style="float: right;">
+                X
             </td>
         </tr>
         </tbody>
 
         <tbody>
-        <tr class="table">
-            <td>
-                CS4550
+        <tr class="table wbdv-row wbdv-course">
+            <td class="wbdv-row wbdv-title">
+                <i class="fas fa-file"></i>
+                <a href="/webapp/course editor/course-editor.template.client.html">CS4550</a>
             </td>
-            <td>
+            <td class="wbdv-row wbdv-owner">
                 Prof.  Jose  Annunziato
             </td>
-            <td>
-                Prof.  Jose  Annunziato
+            <td class="wbdv-row wbdv-modified-date">
+                -
             </td>
-            <td>
-
+            <td class="wbdv-row wbdv-delete wbdv-button" style="float: right;">
+                X
             </td>
         </tr>
         </tbody>
 
         <tbody>
-        <tr class="table">
-            <td>
-                CS4550
+        <tr class="table wbdv-row wbdv-course">
+            <td class="wbdv-row wbdv-title">
+                <i class="fas fa-file"></i>
+                <a href="/webapp/course editor/course-editor.template.client.html">CS4550</a>
             </td>
-            <td>
+            <td class="wbdv-row wbdv-owner">
                 Prof.  Jose  Annunziato
             </td>
-            <td>
-                Prof.  Jose  Annunziato
+            <td class="wbdv-row wbdv-modified-date">
+                -
             </td>
-            <td>
+            <td class="wbdv-row wbdv-delete wbdv-button" style="float: right;">
+                X
+            </td>
+        </tr>
+        </tbody>
 
+        <tbody>
+        <tr class="table wbdv-row wbdv-course">
+            <td class="wbdv-row wbdv-title">
+                <i class="fas fa-file"></i>
+                <a href="/webapp/course editor/course-editor.template.client.html">CS4550</a>
+            </td>
+            <td class="wbdv-row wbdv-owner">
+                Prof.  Jose  Annunziato
+            </td>
+            <td class="wbdv-row wbdv-modified-date">
+                -
+            </td>
+            <td class="wbdv-row wbdv-delete wbdv-button" style="float: right;">
+                X
             </td>
         </tr>
         </tbody>
@@ -126,5 +150,4 @@
 </div>
 
 </body>
-</html>
 </html>
