@@ -7,11 +7,21 @@ function User(username, password, firstName, lastName) {
     this.getUsername = getUsername;
     // ...same for rest of properties…
 
+    this.setPassowrd = setPassword;
+    this.getPassowrd = getPassword;
+
     function setUsername(username) {
-        this.username = username;
+        super.username = username;
     }
     function getUsername() {
-        return this.username;
+        return super.username;
     }
     // ...same for rest of properties…
+
+    function setPassword(password) {
+        super.password = password;
+    }
+    function getUsername() {
+        return super.password;
+    }
 }
