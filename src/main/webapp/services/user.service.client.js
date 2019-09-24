@@ -28,7 +28,15 @@ function AdminUserServiceClient() {
 
     }
     function updateUser(userId, user, callback) {
+        fetch('https://wbdv-generic-server.herokuapp.com/api/001248102/users', {
+            method:"put",
+        headers: {
+        'Content-type': 'application/json'
+        },
 
+        body: JSON.stringify(user)
+
+    })
     }
     function deleteUser(userId, callback) {
 
