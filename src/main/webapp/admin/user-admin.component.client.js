@@ -5,7 +5,9 @@
     var $firstNameFld, $lastNameFld;
     var $userRowTemplate, $tbody;
     var $role;
+    var $updateBtn;
     var userService = new AdminUserServiceClient();
+    var selectedUserId;
     $(main);
 
     function main() {
@@ -13,46 +15,80 @@
         $passwordFld = $("#passwordFld");
         $firstNameFld = $("#firstNameFld");
         $lastNameFld = $("#lastNameFld");
-        $createBtn = $(".wbdv-create");
-        $createBtn.click(createUser);
         $userRowTemplate = $("#template");
-        $tbody = $(".wbdv-tbody");
+        $tbody = $('.wbdv-tbody');
         $role = $("#roleFld");
+
+        $createBtn = $('.wbdv-create');
+        $createBtn.click(createUser);
+
+        $editBtn = $('.wbdv-edit');
+
+        $removeBtn= $('.wbdv-remove');
+
+        $updateBtn = $('.wbdv-update');
+        $updateBtn.click(updateUser);
+
+
 
         findAllUsers();
 
-
-        $editBtn = $(".wbdv-edit");
-        $removeBtn= $(".wbdv-remove");
-
-
-        $editBtn.click(updateUser);
     }
 
     function createUser() {
+
         var username = $usernameFld.val();
         var password = $passwordFld.val();
         var firstName = $firstNameFld.val();
         var lastName = $lastNameFld.val();
         var role = $role.val();
-        var user = {username, password, firstName, lastName, role};
-        console.log(username);
-        userService
-            .createUser(user)
-            .then(renderUser);
+        if(username === "" || password === "" ||
+            firstName === "" || lastName === "" ||
+            role === ""){
+            alert("field cannot be empty!");
+        } else {
+            var user = {username, password, firstName, lastName, role};
+
+            userService
+                .createUser(user).then(findAllUsers);
+        }
     }
     function findAllUsers() {
-        userService.findAllUsers()
-            .then(renderUsers);
+        userService.findAllUsers().then(renderUsers);
     }
-    function findUserById() {  }
+    function findUserById(userId) {
+        userService.findUserById(userId);
+    }
     function deleteUser() {
-        console.log("delete");
-        alert("delete");
+        const selectedUser = event.target.id;
+        console.log(selectedUser);
+        userService.deleteUser(selectedUser).then(findAllUsers);
     }
-    function selectUser() {  }
-    function updateUser() {  }
-    function renderUser(user) {  }
+    function selectUser() {
+        selectedUserId = event.target.id;
+        console.log(selectedUserId);
+        findUserById(selectedUserId);
+    }
+    function updateUser() {
+        var username = $usernameFld.val();
+        var password = $passwordFld.val();
+        var firstName = $firstNameFld.val();
+        var lastName = $lastNameFld.val();
+        var role = $role.val();
+        if(username === "" || password === "" ||
+            firstName === "" || lastName === "" ||
+            role === ""){
+            alert("field cannot be empty!");
+        } else {
+            var user = {username, password, firstName, lastName, role};
+            console.log(selectedUserId);
+           userService.updateUser(selectedUserId,user);
+           alert("user has been updated");
+           findAllUsers();
+        }
+
+    }
+
     function renderUsers(users) {
         $tbody.empty();
         for(var u in users) {
@@ -64,12 +100,18 @@
             rowClone.find('.wbdv-first-name').html(user.firstName);
             rowClone.find('.wbdv-last-name').html(user.lastName);
             rowClone.find('.wbdv-role').html(user.role);
+            rowClone.find('.wbdv-remove').attr('id', user.id);
+            rowClone.find('.wbdv-edit').attr('id', user.id);
             $tbody.append(rowClone);
-            console.log($tbody);
         }
-        $removeBtn = $(".wbdv-remove");
+
+        $removeBtn = $('.wbdv-remove');
         $removeBtn.click(function() {
             deleteUser();
         });
+        $editBtn = $('.wbdv-edit');
+        $editBtn.click(function() {
+            selectUser();
+        })
     }
 })();

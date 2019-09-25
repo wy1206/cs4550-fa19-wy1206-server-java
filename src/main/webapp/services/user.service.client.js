@@ -8,37 +8,39 @@ function AdminUserServiceClient() {
     var self = this;
     function createUser(user) {
         return fetch('https://wbdv-generic-server.herokuapp.com/api/001248102/users', {
-            method: 'POST',
-            body: JSON.stringify(user),
-            headers: {
-                'content-type': 'application/json'
+                method: 'POST',
+                body: JSON.stringify(user),
+                headers: {
+                    'content-type': 'application/json'
+                }
             }
-        }).then(function(response){
-            return response.json()
-        })
+        )
     }
 
     function findAllUsers() {
         return fetch('https://wbdv-generic-server.herokuapp.com/api/001248102/users')
-            .then(function(response){
-                return response.json()
-            })
+            .then(function(response) {
+                    return response.json();
+                }
+            )
     }
-    function findUserById(userId, callback) {
-
+    function findUserById(userId) {
+        fetch('https://wbdv-generic-server.herokuapp.com/api/001248102/users/' + userId, {
+            method:'GET',
+        })
     }
-    function updateUser(userId, user, callback) {
-        fetch('https://wbdv-generic-server.herokuapp.com/api/001248102/users', {
+    function updateUser(userId, user) {
+        fetch('https://wbdv-generic-server.herokuapp.com/api/001248102/users/' + userId, {
             method:"put",
-        headers: {
-        'Content-type': 'application/json'
-        },
-
-        body: JSON.stringify(user)
-
-    })
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
     }
-    function deleteUser(userId, callback) {
-
+    function deleteUser(userId) {
+        return fetch('https://wbdv-generic-server.herokuapp.com/api/001248102/users/' + userId, {
+            method: 'DELETE'
+        })
     }
 }
