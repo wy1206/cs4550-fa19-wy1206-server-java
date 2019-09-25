@@ -36,7 +36,6 @@
     }
 
     function createUser() {
-
         var username = $usernameFld.val();
         var password = $passwordFld.val();
         var firstName = $firstNameFld.val();
@@ -47,7 +46,7 @@
             role === ""){
             alert("field cannot be empty!");
         } else {
-            var user = {username, password, firstName, lastName, role};
+            const user = {username, password, firstName, lastName, role};
 
             userService
                 .createUser(user).then(findAllUsers);
@@ -70,21 +69,24 @@
         findUserById(selectedUserId);
     }
     function updateUser() {
-        var username = $usernameFld.val();
-        var password = $passwordFld.val();
-        var firstName = $firstNameFld.val();
-        var lastName = $lastNameFld.val();
-        var role = $role.val();
+        const username = $usernameFld.val();
+        const password = $passwordFld.val();
+        const firstName = $firstNameFld.val();
+        const lastName = $lastNameFld.val();
+        const role = $role.val();
         if(username === "" || password === "" ||
             firstName === "" || lastName === "" ||
             role === ""){
             alert("field cannot be empty!");
         } else {
-            var user = {username, password, firstName, lastName, role};
+            const user = {username, password, firstName, lastName, role};
             console.log(selectedUserId);
-           userService.updateUser(selectedUserId,user);
-           alert("user has been updated");
-           findAllUsers();
+            console.log(user);
+            userService.updateUser(selectedUserId,user);
+            console.log(user);
+            findAllUsers();
+            alert("user has been updated");
+            location.reload();
         }
 
     }
