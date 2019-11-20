@@ -3,6 +3,7 @@ package com.example.myapp.controllers;
 import com.example.myapp.WidgetService;
 import com.example.myapp.model.Widget;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@CrossOrigin(origins = "https://arcane-taiga-78224.herokuapp.com", allowCredentials = "true",
+allowedHeaders = "*")
 @RestController
 public class WidgetController {
   WidgetService service = new WidgetService();
