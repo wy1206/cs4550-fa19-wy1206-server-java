@@ -1,7 +1,12 @@
 package com.example.myapp.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Widget {
 
+  @Id
   private int id;
   private String name;
 

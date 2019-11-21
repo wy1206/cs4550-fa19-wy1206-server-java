@@ -2,7 +2,12 @@ package com.example.myapp.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Course {
+  @Id
   private int id;
   private String title;
   private List<Module> modules;

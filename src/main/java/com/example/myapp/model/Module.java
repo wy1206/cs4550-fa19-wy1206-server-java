@@ -2,7 +2,12 @@ package com.example.myapp.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Module {
+  @Id
   private int id;
   private String title;
   private List<Lesson> lessons;

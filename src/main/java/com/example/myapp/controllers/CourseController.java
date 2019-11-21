@@ -2,7 +2,9 @@ package com.example.myapp.controllers;
 
 import com.example.myapp.CourseService;
 import com.example.myapp.model.Course;
+import com.example.myapp.repositories.CourseRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +20,10 @@ import java.util.List;
         allowedHeaders = "*")
 @RestController
 public class CourseController {
+
+//  @Autowired
+//  CourseRepository repository;
+
   CourseService service = new CourseService();
   List<Course> courses = service.findAllCourses();
 
